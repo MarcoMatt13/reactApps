@@ -5,29 +5,27 @@ import {
   EllipsisOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
+import Grid from "antd/lib/card/Grid";
 
-const singleExp = () => {
+const singleExp = (props) => {
   const { Meta } = Card;
+
+  function showId() {
+    console.log(props.id);
+    return props.id;
+  }
+
   return (
     <div>
       <Card
-        style={{ width: 300 }}
-        cover={
-          <img
-            alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-          />
-        }
-        actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
-        ]}
+        onClick={showId}
+        style={{ width: 350 }}
+        cover={<img alt="example" src={props.image} />}
       >
         <Meta
           avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-          title="Card title"
-          description="This is the description"
+          title={props.title}
+          description={props.description}
         />
       </Card>
     </div>

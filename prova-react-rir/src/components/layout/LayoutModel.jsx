@@ -4,10 +4,12 @@ import "antd/dist/antd.css";
 import Grid from "./Grid";
 import FilterList from "./FilterList";
 import classes from "./prova.module.css";
-
+import { Row, Col, Menu } from "antd";
+import MenuItem from "antd/lib/menu/MenuItem";
+import { Space } from "antd";
 const { Header, Footer, Sider, Content } = Layout;
 
-const LayoutModel = () => {
+const LayoutModel = (props) => {
   return (
     <Layout>
       <Sider>
