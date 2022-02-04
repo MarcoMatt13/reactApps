@@ -5,8 +5,20 @@ import "antd/dist/antd.css";
 import classes from "./prova.module.css";
 
 const FilterList = () => {
+  const state = {
+    value: 1,
+  };
+
+  function onChange(e) {
+    console.log("radio checked", e.target.value);
+    this.setState({
+      value: e.target.value,
+    });
+  }
+  const { value } = state;
+
   return (
-    <Radio.Group>
+    <Radio.Group onChange={onChange} value={value}>
       <Space direction="vertical">
         <Radio className={classes.text} value={1}>
           Option A
