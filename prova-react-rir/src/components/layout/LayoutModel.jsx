@@ -74,19 +74,38 @@ const LayoutModel = () => {
   const [ownerslist, setOwnerslist] = useState(owners);
 
   const filteredExp =
-    locationslist == locations && ownerslist == ownerslist
+    locationslist === locations && ownerslist === owners
       ? dummy
       : dummy
-          .filter((el) => el.locations.includes(locationslist))
-          .filter((el) => el.owners.includes(ownerslist));
+          .filter(
+            (el) =>
+              el.locations.includes(locationslist[0]) ||
+              el.locations.includes(locationslist[1]) ||
+              el.locations.includes(locationslist[2]) ||
+              el.locations.includes(locationslist[3])
+          )
+          .filter(
+            (el) =>
+              el.owners.includes(ownerslist[0]) ||
+              el.owners.includes(ownerslist[1]) ||
+              el.owners.includes(ownerslist[2]) ||
+              el.owners.includes(ownerslist[3])
+          );
 
   const filterLocations = (e) => {
     setLocationslist(e);
+    console.log(e);
+    if (e == "") {
+      setLocationslist(locations);
+    }
   };
   console.log(locationslist);
 
   const filterOwners = (e) => {
     setOwnerslist(e);
+    if (e == "") {
+      setOwnerslist(owners);
+    }
   };
   console.log(ownerslist);
 
