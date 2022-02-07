@@ -15,7 +15,7 @@ const LayoutModel = () => {
       id: "1",
       title: "This is a first exp",
       image:
-        "https://sognienumeri.it/wp-content/uploads/2019/02/Numero-1-300x300.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
       description: "Id1, Padova, Comune di Padova",
       owners: "Comune di Padova",
       locations: "Padova",
@@ -23,7 +23,9 @@ const LayoutModel = () => {
     {
       id: "2",
       title: "This is a second exp",
-      image: "https://media.leroymerlin.it/media/233565/.jpg",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+
       description: "Id2, Comune di Venezia, Venezia",
       owners: "Comune di Venezia",
       locations: "Venezia",
@@ -32,7 +34,7 @@ const LayoutModel = () => {
       id: "3",
       title: "This is a third exp",
       image:
-        "https://cdn.xxl.thumbs.canstockphoto.it/3-nero-pulito-3d-isolato-numero-bianco-archivio-fotografico_csp60215704.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
       description: "Id3, famiglia Panozzo, Dolomiti",
       owners: "Famiglia Panozzo",
       locations: "Dolomiti",
@@ -68,25 +70,25 @@ const LayoutModel = () => {
     "Consorzio Agrario",
   ];
 
-  const [locationslist, setLocationslist] = useState("all");
-  const [ownerslist, setOwnerslist] = useState("all");
+  const [locationslist, setLocationslist] = useState(locations);
+  const [ownerslist, setOwnerslist] = useState(owners);
 
   const filteredExp =
-    locationslist && ownerslist === "all"
+    locationslist == locations && ownerslist == ownerslist
       ? dummy
       : dummy
-          .filter((dummy) => dummy.locations.includes(locationslist))
-          .filter((dummy) => dummy.owners.includes(ownerslist));
+          .filter((el) => el.locations.includes(locationslist))
+          .filter((el) => el.owners.includes(ownerslist));
 
   const filterLocations = (e) => {
-    setLocationslist(locations[e.target.value]);
-    console.log(locations[e.target.value]);
+    setLocationslist(e);
   };
+  console.log(locationslist);
 
   const filterOwners = (e) => {
-    setOwnerslist(owners[e.target.value]);
-    console.log(owners[e.target.value]);
+    setOwnerslist(e);
   };
+  console.log(ownerslist);
 
   return (
     <Layout>

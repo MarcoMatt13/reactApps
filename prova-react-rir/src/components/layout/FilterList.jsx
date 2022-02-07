@@ -1,21 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Radio, Input, Space } from "antd";
+import { Radio, Input, Space, Checkbox } from "antd";
 import "antd/dist/antd.css";
 
 const FilterList = (props) => {
   return (
-    <Radio.Group onChange={props.filterExp} style={{ padding: "20px" }}>
+    <Checkbox.Group onChange={props.filterExp} style={{ padding: "20px" }}>
       <Space direction="vertical">
         {props.contents.map((elem, index) => {
           return (
-            <Radio value={index} key={index}>
+            <Checkbox value={elem} key={index}>
               {elem}
-            </Radio>
+            </Checkbox>
           );
         })}
       </Space>
-    </Radio.Group>
+    </Checkbox.Group>
   );
 };
 
