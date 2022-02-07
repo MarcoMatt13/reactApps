@@ -2,21 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Radio, Input, Space } from "antd";
 import "antd/dist/antd.css";
-import classes from "./prova.module.css";
-import Grid from "./Grid";
 
 const FilterList = (props) => {
-  const state = {
-    value: 1,
-  };
-
   return (
     <Radio.Group onChange={props.filterExp} style={{ padding: "20px" }}>
       <Space direction="vertical">
-        {props.contents.map((exp, index) => {
+        {props.contents.map((elem, index) => {
           return (
-            <Radio value={index} key={index} name={exp}>
-              {exp}
+            <Radio value={index} key={index}>
+              {elem}
             </Radio>
           );
         })}
