@@ -1,13 +1,14 @@
 import "./App.css";
-import SingleExp from "./components/SingleExp";
-import { Row, Col } from "antd";
 import LayoutModel from "./components/layout/LayoutModel";
+import { Header } from "antd/lib/layout/layout";
 
 function App() {
   return (
-    <div className="App">
-      <LayoutModel></LayoutModel>
-    </div>
+    <Header className="header">
+      <div className="App">
+        <LayoutModel></LayoutModel>
+      </div>
+    </Header>
   );
 }
 

@@ -1,11 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import { Card, Avatar } from "antd";
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
-import Grid from "antd/lib/card/Grid";
 
 const singleExp = (props) => {
   const { Meta } = Card;
