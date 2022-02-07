@@ -7,7 +7,6 @@ const Grid = (props) => {
     <div>
       <Row gutter={[16, 16]}>
         {props.elements.map((exp) => {
-          //if (exp.id == props.filterExp) {
           return (
             <Space size="large" key={exp.id}>
               <Col span={6} key={exp.id}>
@@ -20,7 +19,6 @@ const Grid = (props) => {
               </Col>
             </Space>
           );
-          //}
         })}
       </Row>
     </div>

@@ -4,15 +4,9 @@ import { Card, Avatar } from "antd";
 const singleExp = (props) => {
   const { Meta } = Card;
 
-  function showId() {
-    console.log(props.id);
-    return props.id;
-  }
-
   return (
     <div>
       <Card
-        onClick={showId}
         style={{ width: 350 }}
         cover={<img alt="example" src={props.image} />}
       >

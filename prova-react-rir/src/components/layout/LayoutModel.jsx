@@ -9,21 +9,20 @@ const { SubMenu } = Menu;
 
 const { Header, Footer, Sider, Content } = Layout;
 
-const LayoutModel = (props) => {
+const LayoutModel = () => {
   const dummy = [
     {
       id: "1",
       title: "This is a first exp",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+        "https://sognienumeri.it/wp-content/uploads/2019/02/Numero-1-300x300.png",
       description:
         "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
     },
     {
       id: "2",
       title: "This is a second exp",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+      image: "https://media.leroymerlin.it/media/233565/.jpg",
       description:
         "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
     },
@@ -31,7 +30,7 @@ const LayoutModel = (props) => {
       id: "3",
       title: "This is a third exp",
       image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+        "https://cdn.xxl.thumbs.canstockphoto.it/3-nero-pulito-3d-isolato-numero-bianco-archivio-fotografico_csp60215704.jpg",
       description:
         "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
     },
@@ -54,10 +53,14 @@ const LayoutModel = (props) => {
   ];
 
   const [experiences, setExperiences] = useState("all");
-  console.log(experiences);
 
-  const filterExp = () => {
-    this.setExperiences((experiences) => true);
+  const filteredExp =
+    experiences === "all"
+      ? dummy
+      : dummy.filter((dummy) => dummy.id.includes(experiences));
+
+  const filterExp = (e) => {
+    setExperiences(e.target.value);
   };
 
   return (
@@ -86,7 +89,7 @@ const LayoutModel = (props) => {
             </Menu>
           </Sider>
           <Content>
-            <Grid onFilter={filterExp} elements={dummy} />
+            <Grid elements={filteredExp} />
           </Content>
         </Layout>
       </Content>
