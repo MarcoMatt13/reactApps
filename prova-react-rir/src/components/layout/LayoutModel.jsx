@@ -1,9 +1,8 @@
 import "antd/dist/antd.css";
-import AllExp from "./AllExp";
 import FilterList from "./FilterList";
 import classes from "./general.module.css";
-import { Layout, Menu, Space } from "antd";
-import { useEffect, useState } from "react";
+import { Layout, Menu } from "antd";
+import { useState } from "react";
 import CategoriesList from "./CategoriesList";
 import AllExpList from "./AllExpList";
 const { SubMenu } = Menu;
@@ -65,31 +64,6 @@ const LayoutModel = () => {
     },
   ];
 
-  const locations = [...new Set(dummy.map((item) => item.location))];
-  const owners = [...new Set(dummy.map((item) => item.owner))];
-  const categories = [...new Set(dummy.map((item) => item.category))];
-
-  const [locationslist, setLocationslist] = useState(locations);
-  const [ownerslist, setOwnerslist] = useState(owners);
-  const [categorieslist, setCategorieslist] = useState(categories);
-
-  const filterLocations = (e) => {
-    setLocationslist(e);
-    console.log(e);
-    if (!e.length) {
-      setLocationslist(locations);
-    }
-  };
-  console.log(locationslist);
-
-  const filterOwners = (e) => {
-    setOwnerslist(e);
-    if (!e.length) {
-      setOwnerslist(owners);
-    }
-  };
-  console.log(ownerslist);
-
   const treeData = [
     {
       title: "Alloggi",
@@ -147,10 +121,39 @@ const LayoutModel = () => {
     },
   ];
 
+  // const for filtering
+  const locations = [...new Set(dummy.map((item) => item.location))];
+  const owners = [...new Set(dummy.map((item) => item.owner))];
+  const categories = [...new Set(dummy.map((item) => item.category))];
+
+  const [locationslist, setLocationslist] = useState(locations);
+  const [ownerslist, setOwnerslist] = useState(owners);
+  const [categorieslist, setCategorieslist] = useState(categories);
+
+  // support constants for categories
   const [expandedKeys, setExpandedKeys] = useState([]);
   const [checkedKeys, setCheckedKeys] = useState([]);
   const [autoExpandParent, setAutoExpandParent] = useState(true);
 
+  // functions for locations and owners filters
+  const filterLocations = (e) => {
+    setLocationslist(e);
+    console.log(e);
+    if (!e.length) {
+      setLocationslist(locations);
+    }
+  };
+  console.log(locationslist);
+
+  const filterOwners = (e) => {
+    setOwnerslist(e);
+    if (!e.length) {
+      setOwnerslist(owners);
+    }
+  };
+  console.log(ownerslist);
+
+  // function for categoriesList
   const onExpand = (expandedKeysValue) => {
     console.log("onExpand", expandedKeysValue);
     setExpandedKeys(expandedKeysValue);
@@ -166,6 +169,7 @@ const LayoutModel = () => {
   };
   console.log(categorieslist);
 
+  // filtered element to pass to AllExp
   const filteredExp =
     locationslist === locations &&
     ownerslist === owners &&
@@ -182,37 +186,37 @@ const LayoutModel = () => {
 
       <Content style={{ padding: "0 20px" }}>
         <Layout>
-          <Sider style={{ padding: "24px 0", background: "white" }}>
-            <Menu mode="inline" style={{ height: "100%" }}>
-              <SubMenu key="sub1" title="Locations">
-                <FilterList filterExp={filterLocations} contents={locations} />
-              </SubMenu>
-              <SubMenu key="sub2" title="Owners">
-                <FilterList filterExp={filterOwners} contents={owners} />
-              </SubMenu>
-              <SubMenu key="sub3" title="Categories">
-                <CategoriesList
-                  treeData={treeData}
-                  onExpand={onExpand}
-                  onCheck={onCheck}
-                  checkedKeys={checkedKeys}
-                  expandedKeys={expandedKeys}
-                  autoExpandParent={autoExpandParent}
-                />
-              </SubMenu>
-            </Menu>
-          </Sider>
+          <div className={classes.sider}>
+            <Sider>
+              <Menu mode="inline" style={{ height: "100%" }}>
+                <SubMenu key="sub1" title="Locations">
+                  <FilterList
+                    filterExp={filterLocations}
+                    contents={locations}
+                  />
+                </SubMenu>
+                <SubMenu key="sub2" title="Owners">
+                  <FilterList filterExp={filterOwners} contents={owners} />
+                </SubMenu>
+                <SubMenu key="sub3" title="Categories">
+                  <CategoriesList
+                    treeData={treeData}
+                    onExpand={onExpand}
+                    onCheck={onCheck}
+                    checkedKeys={checkedKeys}
+                    expandedKeys={expandedKeys}
+                    autoExpandParent={autoExpandParent}
+                  />
+                </SubMenu>
+              </Menu>
+            </Sider>
+          </div>
           <Content>
             <AllExpList elements={filteredExp} />
           </Content>
         </Layout>
       </Content>
-      <Footer
-        style={{ textAlign: "center", fontSize: "20px" }}
-        className={classes.header}
-      >
-        Footer prova React app RIR
-      </Footer>
+      <Footer className={classes.footer}>Footer prova React app RIR</Footer>
     </Layout>
   );
 };

@@ -9,6 +9,19 @@
   background-color: #0e2f44;
 }
 
+.footer {
+  color: white;
+  font-family: "Papyrus";
+  font-size: 20px;
+  font-style: "italic";
+  background-color: #0e2f44;
+  text-align: "center";
+}
+
 .filtersBackground {
   background-color: #d3ffce;
+}
+
+.sider {
+  padding: "24px 0";
 }
