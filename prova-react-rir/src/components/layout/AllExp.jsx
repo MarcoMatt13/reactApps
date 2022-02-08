@@ -1,27 +1,26 @@
 import { Row, Col } from "antd";
 import SingleExp from "./SingleExp";
-import { Space, List, Card } from "antd";
+import { Space } from "antd";
 
 const AllExp = (props) => {
   return (
     <div>
-      <List
-        grid={{
-          gutter: 8,
-          column: 3,
-        }}
-        dataSource={props.elements}
-        renderItem={(item) => (
-          <List.Item>
-            <SingleExp
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              description={item.description}
-            ></SingleExp>
-          </List.Item>
-        )}
-      />
+      <Row gutter={[16, 16]}>
+        {props.elements.map((exp) => {
+          return (
+            <Space size="large" key={exp.id}>
+              <Col span={12} key={exp.id}>
+                <SingleExp
+                  id={exp.id}
+                  title={exp.title}
+                  image={exp.image}
+                  description={exp.description}
+                ></SingleExp>
+              </Col>
+            </Space>
+          );
+        })}
+      </Row>
     </div>
   );
 };

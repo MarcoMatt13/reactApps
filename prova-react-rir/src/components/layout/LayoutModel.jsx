@@ -5,7 +5,7 @@ import classes from "./general.module.css";
 import { Layout, Menu, Space } from "antd";
 import { useEffect, useState } from "react";
 import CategoriesList from "./CategoriesList";
-
+import AllExpList from "./AllExpList";
 const { SubMenu } = Menu;
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -17,7 +17,7 @@ const LayoutModel = () => {
       title: "This is a first exp",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
-      description: "Id1, Padova, Comune di Padova",
+      description: "id1, Comune di Padova, Padova",
       owners: "Comune di Padova",
       locations: "Padova",
     },
@@ -27,7 +27,7 @@ const LayoutModel = () => {
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
 
-      description: "Id2, Comune di Venezia, Venezia",
+      description: "id2, Comune di Venezia, Venezia",
       owners: "Comune di Venezia",
       locations: "Venezia",
     },
@@ -36,7 +36,7 @@ const LayoutModel = () => {
       title: "This is a third exp",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
-      description: "Id3, famiglia Panozzo, Dolomiti",
+      description: "id3, famiglia Panozzo, Dolomiti",
       owners: "Famiglia Panozzo",
       locations: "Dolomiti",
     },
@@ -45,8 +45,7 @@ const LayoutModel = () => {
       title: "This is a fourth exp",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
-      description:
-        "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
+      description: "id4, Consorzio agrario, Venezia",
       owners: "Consorzio Agrario",
       locations: "Venezia",
     },
@@ -55,21 +54,15 @@ const LayoutModel = () => {
       title: "This is a fifth exp",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
-      description:
-        "This is a first, amazing meetup which you definitely should not miss. It will be a lot of fun!",
+      description: "id5, Comune di Venezia, Venezia",
       owners: "Comune di Venezia",
       locations: "Venezia",
     },
   ];
 
-  const locations = ["Padova", "Venezia", "Dolomiti", "Treviso"];
+  const locations = [...new Set(dummy.map((item) => item.locations))];
 
-  const owners = [
-    "Comune di Venezia",
-    "Famiglia Panozzo",
-    "Comune di Padova",
-    "Consorzio Agrario",
-  ];
+  const owners = [...new Set(dummy.map((item) => item.owners))];
 
   const [locationslist, setLocationslist] = useState(locations);
   const [ownerslist, setOwnerslist] = useState(owners);
@@ -118,7 +111,7 @@ const LayoutModel = () => {
             </Menu>
           </Sider>
           <Content>
-            <AllExp elements={filteredExp} />
+            <AllExpList elements={filteredExp} />
           </Content>
         </Layout>
       </Content>
