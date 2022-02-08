@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 import "antd/dist/antd.css";
 import { Tree } from "antd";
 import classes from "./general.module.css";
+import { TreeNode } from "antd/lib/tree-select";
 
 const CategoriesList = (props) => {
   return (

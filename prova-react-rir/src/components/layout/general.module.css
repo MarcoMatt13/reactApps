@@ -25,3 +25,8 @@
 .sider {
   padding: "24px 0";
 }
+
+.ant-tree-checkbox-checked .ant-tree-checkbox-inner {
+  color: red;
+  border-color: red;
+}

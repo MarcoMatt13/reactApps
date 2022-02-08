@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, Avatar, Button } from "antd";
-import classes from "./general.module.css";
+import { Card, Avatar } from "antd";
 const singleExp = (props) => {
   const { Meta } = Card;
 

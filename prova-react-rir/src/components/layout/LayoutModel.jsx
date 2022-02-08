@@ -5,6 +5,7 @@ import { Layout, Menu } from "antd";
 import { useState } from "react";
 import CategoriesList from "./CategoriesList";
 import AllExpList from "./AllExpList";
+import AllExp from "./AllExp";
 const { SubMenu } = Menu;
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -136,9 +137,9 @@ const LayoutModel = () => {
   const owners = [...new Set(dummy.map((item) => item.owner))];
   const categories = [...new Set(dummy.map((item) => item.category))];
 
-  const [locationslist, setLocationslist] = useState(locations);
-  const [ownerslist, setOwnerslist] = useState(owners);
-  const [categorieslist, setCategorieslist] = useState(categories);
+  const [locationsList, setLocationsList] = useState(locations);
+  const [ownersList, setOwnersList] = useState(owners);
+  const [categoriesList, setCategoriesList] = useState(categories);
 
   // support constants for categories
   const [expandedKeys, setExpandedKeys] = useState([]);
@@ -147,21 +148,21 @@ const LayoutModel = () => {
 
   // functions for locations and owners filters
   const filterLocations = (e) => {
-    setLocationslist(e);
+    setLocationsList(e);
     console.log(e);
     if (!e.length) {
-      setLocationslist(locations);
+      setLocationsList(locations);
     }
   };
-  console.log(locationslist);
+  console.log(locationsList);
 
   const filterOwners = (e) => {
-    setOwnerslist(e);
+    setOwnersList(e);
     if (!e.length) {
-      setOwnerslist(owners);
+      setOwnersList(owners);
     }
   };
-  console.log(ownerslist);
+  console.log(ownersList);
 
   // function for categoriesList
   const onExpand = (expandedKeysValue) => {
@@ -171,24 +172,24 @@ const LayoutModel = () => {
   };
 
   const onCheck = (checkedKeysValue) => {
-    setCategorieslist(checkedKeysValue);
+    setCategoriesList(checkedKeysValue);
     setCheckedKeys(checkedKeysValue);
     if (!checkedKeysValue.length) {
-      setCategorieslist(categories);
+      setCategoriesList(categories);
     }
   };
-  console.log(categorieslist);
+  console.log(categoriesList);
 
   // filtered element to pass to AllExp
   const filteredExp =
-    locationslist === locations &&
-    ownerslist === owners &&
-    categorieslist === categories
+    locationsList === locations &&
+    ownersList === owners &&
+    categoriesList === categories
       ? dummy
       : dummy
-          .filter((el) => locationslist.includes(el.location))
-          .filter((el) => ownerslist.includes(el.owner))
-          .filter((el) => categorieslist.includes(el.category));
+          .filter((el) => locationsList.includes(el.location))
+          .filter((el) => ownersList.includes(el.owner))
+          .filter((el) => categoriesList.includes(el.category));
 
   return (
     <Layout>

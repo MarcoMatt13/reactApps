@@ -1,6 +1,5 @@
-import { Row, Col } from "antd";
 import SingleExp from "./SingleExp";
-import { Space, List } from "antd";
+import { List } from "antd";
 
 const AllExpList = (props) => {
   return (
