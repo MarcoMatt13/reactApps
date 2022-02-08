@@ -2,7 +2,7 @@ import "antd/dist/antd.css";
 import Grid from "./Grid";
 import FilterList from "./FilterList";
 import classes from "./prova.module.css";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Pagination } from "antd";
 import { useEffect, useState } from "react";
 
 const { SubMenu } = Menu;
@@ -77,20 +77,8 @@ const LayoutModel = () => {
     locationslist === locations && ownerslist === owners
       ? dummy
       : dummy
-          .filter(
-            (el) =>
-              el.locations.includes(locationslist[0]) ||
-              el.locations.includes(locationslist[1]) ||
-              el.locations.includes(locationslist[2]) ||
-              el.locations.includes(locationslist[3])
-          )
-          .filter(
-            (el) =>
-              el.owners.includes(ownerslist[0]) ||
-              el.owners.includes(ownerslist[1]) ||
-              el.owners.includes(ownerslist[2]) ||
-              el.owners.includes(ownerslist[3])
-          );
+          .filter((el) => locationslist.includes(el.locations))
+          .filter((el) => ownerslist.includes(el.owners));
 
   const filterLocations = (e) => {
     setLocationslist(e);
@@ -123,6 +111,7 @@ const LayoutModel = () => {
               <SubMenu key="sub2" title="Owner">
                 <FilterList filterExp={filterOwners} contents={owners} />
               </SubMenu>
+              <SubMenu key="sub3" title="Categories"></SubMenu>
             </Menu>
           </Sider>
           <Content>
