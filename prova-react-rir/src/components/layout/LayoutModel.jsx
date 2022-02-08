@@ -1,9 +1,10 @@
 import "antd/dist/antd.css";
-import Grid from "./Grid";
+import AllExp from "./AllExp";
 import FilterList from "./FilterList";
-import classes from "./prova.module.css";
-import { Layout, Menu, Pagination } from "antd";
+import classes from "./general.module.css";
+import { Layout, Menu, Space } from "antd";
 import { useEffect, useState } from "react";
+import CategoriesList from "./CategoriesList";
 
 const { SubMenu } = Menu;
 
@@ -111,11 +112,13 @@ const LayoutModel = () => {
               <SubMenu key="sub2" title="Owner">
                 <FilterList filterExp={filterOwners} contents={owners} />
               </SubMenu>
-              <SubMenu key="sub3" title="Categories"></SubMenu>
+              <SubMenu key="sub3" title="Categories">
+                <CategoriesList />
+              </SubMenu>
             </Menu>
           </Sider>
           <Content>
-            <Grid elements={filteredExp} />
+            <AllExp elements={filteredExp} />
           </Content>
         </Layout>
       </Content>
