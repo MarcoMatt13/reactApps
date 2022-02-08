@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Radio, Input, Space, Checkbox } from "antd";
+import { Radio, Button, Space, Checkbox } from "antd";
 import "antd/dist/antd.css";
 import classes from "./general.module.css";
 
