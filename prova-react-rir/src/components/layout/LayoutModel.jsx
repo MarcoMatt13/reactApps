@@ -227,7 +227,7 @@ const LayoutModel = () => {
           </Content>
         </Layout>
       </Content>
-      <Footer className={classes.footer}>Footer prova React app RIR</Footer>
+      <Footer className={classes.footer}>Footer prova React app RIR </Footer>
     </Layout>
   );
 };
