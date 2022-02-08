@@ -93,7 +93,7 @@ const LayoutModel = () => {
 
   return (
     <Layout>
-      <Header className={classes.text}>TITOLO HEADER</Header>
+      <Header className={classes.header}>TITOLO HEADER</Header>
 
       <Content style={{ padding: "0 50px" }}>
         <Layout>

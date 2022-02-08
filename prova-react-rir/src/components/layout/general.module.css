@@ -1,6 +1,12 @@
 .text {
   color: white;
 }
+.header {
+  color: greenyellow;
+  font-family: "Papyrus";
+  font-size: 30px;
+  font-style: "italic";
+}
 
 .filtersBackground {
   background-color: #d3ffce;

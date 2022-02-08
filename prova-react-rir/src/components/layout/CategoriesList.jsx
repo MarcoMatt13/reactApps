@@ -25,38 +25,38 @@ const CategoriesList = (props) => {
       ],
     },
     {
-      title: "0-1",
-      key: "0-1",
+      title: "Baite e Rifugi",
+      key: "Baite e Rifugi",
       children: [
         {
-          title: "0-1-0-0",
-          key: "0-1-0-0",
+          title: "Baita di montagna",
+          key: "Baita di montagna",
         },
         {
-          title: "0-1-0-1",
-          key: "0-1-0-1",
+          title: "Rifugio",
+          key: "Rifugio",
         },
         {
-          title: "0-1-0-2",
-          key: "0-1-0-2",
+          title: "Baita privata",
+          key: "Baita privata",
         },
       ],
     },
     {
-      title: "0-2",
-      key: "0-2",
+      title: "Ristorazione",
+      key: "Ristorazione",
       children: [
         {
-          title: "0-2-0-0",
-          key: "0-2-0-0",
+          title: "Bar",
+          key: "Bar",
         },
         {
-          title: "0-2-0-2",
-          key: "0-2-0-2",
+          title: "Ristorante di Montagna",
+          key: "Ristorante di Montagna",
         },
         {
-          title: "0-2-0-3",
-          key: "0-2-0-3",
+          title: "Ristorante con giardino",
+          key: "Ristorante con giardino",
         },
       ],
     },
