@@ -18,8 +18,8 @@ const LayoutModel = () => {
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
       description: "id1, Comune di Padova, Padova",
-      owners: "Comune di Padova",
-      locations: "Padova",
+      owner: "Comune di Padova",
+      location: "Padova",
       category: "Bar",
     },
     {
@@ -29,8 +29,8 @@ const LayoutModel = () => {
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
 
       description: "id2, Comune di Venezia, Venezia",
-      owners: "Comune di Venezia",
-      locations: "Venezia",
+      owner: "Comune di Venezia",
+      location: "Venezia",
       category: "Bar",
     },
     {
@@ -39,8 +39,8 @@ const LayoutModel = () => {
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
       description: "id3, famiglia Panozzo, Dolomiti",
-      owners: "Famiglia Panozzo",
-      locations: "Dolomiti",
+      owner: "Famiglia Panozzo",
+      location: "Dolomiti",
       category: "Ristorante di Montagna",
     },
     {
@@ -49,8 +49,8 @@ const LayoutModel = () => {
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
       description: "id4, Consorzio agrario, Venezia",
-      owners: "Consorzio Agrario",
-      locations: "Venezia",
+      owner: "Consorzio Agrario",
+      location: "Venezia",
       category: "Rifugio",
     },
     {
@@ -59,14 +59,14 @@ const LayoutModel = () => {
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
       description: "id5, Comune di Venezia, Venezia",
-      owners: "Comune di Venezia",
-      locations: "Venezia",
+      owner: "Comune di Venezia",
+      location: "Venezia",
       category: "Hotel",
     },
   ];
 
-  const locations = [...new Set(dummy.map((item) => item.locations))];
-  const owners = [...new Set(dummy.map((item) => item.owners))];
+  const locations = [...new Set(dummy.map((item) => item.location))];
+  const owners = [...new Set(dummy.map((item) => item.owner))];
   const categories = [...new Set(dummy.map((item) => item.category))];
 
   const [locationslist, setLocationslist] = useState(locations);
@@ -157,16 +157,14 @@ const LayoutModel = () => {
     setAutoExpandParent(false);
   };
 
-  const filterCategories = (e) => {
-    console.log(e);
-  };
-  console.log(categorieslist);
-
   const onCheck = (checkedKeysValue) => {
-    //console.log("onCheck", checkedKeysValue);
     setCategorieslist(checkedKeysValue);
     setCheckedKeys(checkedKeysValue);
+    if (!checkedKeysValue.length) {
+      setCategorieslist(categories);
+    }
   };
+  console.log(categorieslist);
 
   const filteredExp =
     locationslist === locations &&
@@ -174,8 +172,8 @@ const LayoutModel = () => {
     categorieslist === categories
       ? dummy
       : dummy
-          .filter((el) => locationslist.includes(el.locations))
-          .filter((el) => ownerslist.includes(el.owners))
+          .filter((el) => locationslist.includes(el.location))
+          .filter((el) => ownerslist.includes(el.owner))
           .filter((el) => categorieslist.includes(el.category));
 
   return (
@@ -194,7 +192,6 @@ const LayoutModel = () => {
               </SubMenu>
               <SubMenu key="sub3" title="Categories">
                 <CategoriesList
-                  filterExp={filterCategories}
                   treeData={treeData}
                   onExpand={onExpand}
                   onCheck={onCheck}
