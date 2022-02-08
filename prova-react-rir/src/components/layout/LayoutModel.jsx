@@ -13,7 +13,7 @@ const LayoutModel = () => {
   const dummy = [
     {
       id: "1",
-      title: "This is a first exp",
+      title: "This is the first exp",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
       description: "id1, Comune di Padova, Padova",
@@ -23,7 +23,7 @@ const LayoutModel = () => {
     },
     {
       id: "2",
-      title: "This is a second exp",
+      title: "This is the second exp",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
 
@@ -34,7 +34,7 @@ const LayoutModel = () => {
     },
     {
       id: "3",
-      title: "This is a third exp",
+      title: "This is the third exp",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
       description: "id3, famiglia Panozzo, Dolomiti",
@@ -44,7 +44,7 @@ const LayoutModel = () => {
     },
     {
       id: "4",
-      title: "This is a fourth exp",
+      title: "This is the fourth exp",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
       description: "id4, Consorzio agrario, Venezia",
@@ -54,13 +54,23 @@ const LayoutModel = () => {
     },
     {
       id: "5",
-      title: "This is a fifth exp",
+      title: "This is the fifth exp",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
       description: "id5, Comune di Venezia, Venezia",
       owner: "Comune di Venezia",
       location: "Venezia",
       category: "Hotel",
+    },
+    {
+      id: "6",
+      title: "This is the sixth exp",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/2560px-Stadtbild_M%C3%BCnchen.jpg",
+      description: "id6, Comune di Venezia, Famiglia Panozzo",
+      owner: "Famiglia Panozzo",
+      location: "Venezia",
+      category: "Baita privata",
     },
   ];
 
