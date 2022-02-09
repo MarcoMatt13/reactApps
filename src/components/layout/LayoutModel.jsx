@@ -6,6 +6,12 @@ import { useState } from "react";
 import CategoriesList from "./CategoriesList";
 import AllExpList from "./AllExpList";
 import AllExp from "./AllExp";
+import {
+  PushpinOutlined,
+  UserOutlined,
+  ApartmentOutlined,
+} from "@ant-design/icons";
+
 const { SubMenu } = Menu;
 
 const { Header, Footer, Sider, Content } = Layout;
@@ -192,17 +198,27 @@ const LayoutModel = () => {
           .filter((el) => categoriesList.includes(el.category));
 
   return (
-    <Layout style={{ padding: "0 20px" }}>
-      <Sider>
+    <Layout style={{ padding: "0 20px", minHeight: "100vh" }}>
+      <Sider
+        breakpoint="lg"
+        collapsedWidth="0"
+        onBreakpoint={(broken) => {
+          console.log(broken);
+        }}
+      >
         <div className={classes.logo}>LOGO</div>
         <Menu theme="dark" mode="inline" style={{ height: "100%" }}>
-          <SubMenu key="sub1" title="Locations">
+          <SubMenu key="sub1" title="Locations" icon={<PushpinOutlined />}>
             <FilterList filterExp={filterLocations} contents={locations} />
           </SubMenu>
-          <SubMenu key="sub2" title="Owners">
+          <SubMenu key="sub2" title="Owners" icon={<UserOutlined />}>
             <FilterList filterExp={filterOwners} contents={owners} />
           </SubMenu>
-          <SubMenu key="sub3" title="Categories">
+          <SubMenu
+            key="sub3"
+            title="Loc. Categories"
+            icon={<ApartmentOutlined />}
+          >
             <CategoriesList
               treeData={treeData}
               onExpand={onExpand}
@@ -216,11 +232,9 @@ const LayoutModel = () => {
       </Sider>
       <Layout>
         <Header className={classes.header}>TITOLO HEADER</Header>
-
-        <Content>
+        <Content style={{ margin: "24px 16px 0" }}>
           <AllExpList elements={filteredExp} />
         </Content>
-
         <Footer className={classes.footer}>Footer prova React app RIR </Footer>
       </Layout>
     </Layout>

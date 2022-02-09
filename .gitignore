@@ -75,4 +75,4 @@ launch.json
 /public/static/courses-json-data/
 .DS_Store
 
-*/node_modules
+/node_modules
