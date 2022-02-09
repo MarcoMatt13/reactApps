@@ -192,42 +192,37 @@ const LayoutModel = () => {
           .filter((el) => categoriesList.includes(el.category));
 
   return (
-    <Layout>
-      <Header className={classes.header}>TITOLO HEADER</Header>
+    <Layout style={{ padding: "0 20px" }}>
+      <Sider>
+        <div className={classes.logo}>LOGO</div>
+        <Menu theme="dark" mode="inline" style={{ height: "100%" }}>
+          <SubMenu key="sub1" title="Locations">
+            <FilterList filterExp={filterLocations} contents={locations} />
+          </SubMenu>
+          <SubMenu key="sub2" title="Owners">
+            <FilterList filterExp={filterOwners} contents={owners} />
+          </SubMenu>
+          <SubMenu key="sub3" title="Categories">
+            <CategoriesList
+              treeData={treeData}
+              onExpand={onExpand}
+              onCheck={onCheck}
+              checkedKeys={checkedKeys}
+              expandedKeys={expandedKeys}
+              autoExpandParent={autoExpandParent}
+            />
+          </SubMenu>
+        </Menu>
+      </Sider>
+      <Layout>
+        <Header className={classes.header}>TITOLO HEADER</Header>
 
-      <Content style={{ padding: "0 20px" }}>
-        <Layout>
-          <div className={classes.sider}>
-            <Sider>
-              <Menu mode="inline" style={{ height: "100%" }}>
-                <SubMenu key="sub1" title="Locations">
-                  <FilterList
-                    filterExp={filterLocations}
-                    contents={locations}
-                  />
-                </SubMenu>
-                <SubMenu key="sub2" title="Owners">
-                  <FilterList filterExp={filterOwners} contents={owners} />
-                </SubMenu>
-                <SubMenu key="sub3" title="Categories">
-                  <CategoriesList
-                    treeData={treeData}
-                    onExpand={onExpand}
-                    onCheck={onCheck}
-                    checkedKeys={checkedKeys}
-                    expandedKeys={expandedKeys}
-                    autoExpandParent={autoExpandParent}
-                  />
-                </SubMenu>
-              </Menu>
-            </Sider>
-          </div>
-          <Content>
-            <AllExpList elements={filteredExp} />
-          </Content>
-        </Layout>
-      </Content>
-      <Footer className={classes.footer}>Footer prova React app RIR </Footer>
+        <Content>
+          <AllExpList elements={filteredExp} />
+        </Content>
+
+        <Footer className={classes.footer}>Footer prova React app RIR </Footer>
+      </Layout>
     </Layout>
   );
 };

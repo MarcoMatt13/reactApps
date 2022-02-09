@@ -2,31 +2,31 @@
   color: white;
 }
 .header {
-  color: white;
+  color: black;
   font-family: "Papyrus";
   font-size: 30px;
   font-style: "italic";
-  background-color: #0e2f44;
+  background-color: white;
 }
 
 .footer {
-  color: white;
+  color: black;
   font-family: "Papyrus";
   font-size: 20px;
   font-style: "italic";
-  background-color: #0e2f44;
+  background-color: white;
   text-align: "center";
 }
 
 .filtersBackground {
-  background-color: #d3ffce;
+  background-color: white;
+  color: black;
 }
 
-.sider {
-  padding: "24px 0";
-}
-
-.ant-tree-checkbox-checked .ant-tree-checkbox-inner {
-  color: red;
-  border-color: red;
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 20px;
 }
